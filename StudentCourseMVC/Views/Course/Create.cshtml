@@ -1,0 +1,56 @@
+﻿@model StudentCourseMVC.Models.ViewModel.CourseCreateViewModel
+
+@{
+    ViewData["Title"] = "Create Course";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0">Create New Course</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3 text-center"></div>
+
+                        <div class="mb-3 row">
+                            <label asp-for="StudentName" class="col-sm-3 col-form-label text-end"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="StudentName" class="form-control" />
+                                <span asp-validation-for="StudentName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                       
+                        <div class="mb-3 row">
+                            <label asp-for="CourseTitle" class="col-sm-3 col-form-label text-end"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="CourseTitle" class="form-control" />
+                                <span asp-validation-for="CourseTitle" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row">
+                            <label asp-for="TotalMarks" class="col-sm-3 col-form-label text-end"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="TotalMarks" class="form-control" />
+                                <span asp-validation-for="TotalMarks" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <input type="submit" value="Create" class="btn btn-primary px-4" />
+                            <a asp-action="Index" class="btn btn-secondary ms-2 px-4">Back to List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
