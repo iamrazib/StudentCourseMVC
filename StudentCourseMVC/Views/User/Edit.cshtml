@@ -1,0 +1,42 @@
+﻿@model StudentCourseMVC.Models.User
+
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<div class="container mt-4">
+    <h2>Edit User</h2>
+
+    <form asp-action="Edit" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+            <label for="Id" class="form-label">User ID</label>
+            <input type="text" class="form-control" id="Id" name="Id" value="@Model.Id" readonly />
+        </div>
+
+        <div class="mb-3">
+            <label for="FirstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model.FirstName" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="LastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="LastName" name="LastName" value="@Model.LastName" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="Role" class="form-label">Role</label>
+            @* <select class="form-select" id="Role" name="Role" required>
+                <option value="Admin" @(Model.Role == "Admin" ? "selected" : "")>Admin</option>
+                <option value="Manager" @(Model.Role == "Manager" ? "selected" : "")>Manager</option>
+                <option value="Salesman" @(Model.Role == "Salesman" ? "selected" : "")>Salesman</option>
+            </select> *@
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-success">Save Changes</button>
+            <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>

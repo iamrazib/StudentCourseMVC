@@ -6,11 +6,13 @@ namespace StudentCourseMVC.Data.UnitOfWork
     {
         private readonly CourseDbContext _context;
         public ICourseRepository CourseRepository { get; }
+        public IUserRepository UserRepository { get; }
 
-        public UnitOfWork(CourseDbContext context, ICourseRepository courseRepository)
+        public UnitOfWork(CourseDbContext context, ICourseRepository courseRepository, IUserRepository userRepository)
         {
             _context = context;
             CourseRepository = courseRepository;
+            UserRepository = userRepository;
         }
         public void Dispose()
         {
